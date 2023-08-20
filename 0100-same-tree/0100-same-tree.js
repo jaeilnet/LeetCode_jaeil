@@ -13,14 +13,7 @@
  */
 var isSameTree = function(p, q) {
     
-    const tree = (p, q) => {
-        if(!p && !q) return true
-        if((p !== null && q== null) || (p === null && q !==null)) return false;
-        if(p.val !== q.val) return false
-        
-        return tree(p.left, q.left) && tree(p.right, q.right)
-    }
-    
-    
-    return tree(p, q)
+    if (!p && !q) return true;
+    if (!p || !q) return false;
+    return p.val === q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
 };

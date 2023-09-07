@@ -3,25 +3,18 @@
  * @return {Object}
  */
 var expect = function(val) {
-  
     
-    const toBe = (v) => {
-        if(val === v){
+    const result = (condition, message) => {
+        if(condition){
             return true
         }else {
-            throw Error("Not Equal")
+            throw Error(message)
         }
     }
-    
-    const notToBe = (v) => {
-         if(val !== v){
-            return true
-        }else {
-            throw Error("Equal")
-            }
-        }
-    
-    
+  
+    const toBe = (v) => result(val===v, "Not Equal")
+    const notToBe = (v) => result(val !== v, "Equal")
+
     return {
         toBe,
         notToBe
